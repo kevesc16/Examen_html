@@ -21,3 +21,19 @@
   width: 100%;
   object-fit: cover;
 }
+
+#background{
+  background-color: #202020;
+}
+
+#barrapag {
+  display: flex;
+  justify-content: center;
+}
+
+.card-body{
+    background-color: #a52a2a;
+}
+
+
+
