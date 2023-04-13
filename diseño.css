@@ -9,6 +9,7 @@
     width: 40%;
     margin: 0 auto;
     padding: 10px;
+    
 
 }
 #su img{
@@ -23,7 +24,8 @@
 }
 
 #background{
-  background-color: #202020;
+  background-color: linear-gradient#202020  ;
+  background: linear-gradient(0deg,transparent, #020202);
 }
 
 #barrapag {
@@ -32,7 +34,10 @@
 }
 
 .card-body{
-    background-color: #a52a2a;
+    background-color: #2dabb4;
+}
+header{
+    color: aqua;
 }
 
 
