@@ -1,44 +1,29 @@
-#carouselExampleAutoplaying {
-    width: 25%;
-    margin: 0 auto;
-    padding: 20px;
+body{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
-#su{
-    width: 40%;
-    margin: 0 auto;
-    padding: 10px;
+#margincard{
     
-
-}
-#su img{
-  width: 100%;
-  margin: 0 auto;
-
+    margin-top: 2cm;
+    margin-bottom: 2cm;
 }
 
-.carousel-item img {
-  width: 100%;
-  object-fit: cover;
+h5 {
+    -webkit-text-stroke: 1px black;
+    text-stroke: 1px black;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    font-style: oblique;
 }
 
-#background{
-  background-color: linear-gradient#202020  ;
-  background: linear-gradient(0deg,transparent, #020202);
+.page-item.active .page-link {
+    background-color: #2d2d36;
+    border-color: #2d2d36;
 }
-
-#barrapag {
-  display: flex;
-  justify-content: center;
+.centrado{
+    text-align: center;
 }
-
-.card-body{
-    background-color: #2dabb4;
-}
-header{
-    color: aqua;
-}
-
-
-
