@@ -26,3 +26,34 @@ label{
 .error{
     color: rgba(231, 216, 0, 0.897);
 }
+#title1{
+    color: white;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+#form1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#Mod_user input{
+    background: none;
+    color: white;
+    font-family: monospace;
+}
+#Mod_user select{
+    background: none;
+    color: white;
+}
+#Mod_user select option{
+    color: black;
+}
+#cen{
+    text-align: left;
+}
+#logo{
+    size: 100%;
+}
