@@ -101,3 +101,28 @@ $(document).ready(function(){
         location.href="Principal.html"
     });
 })
+
+$("#confiCambios").validate({
+    rules: {
+        contraNueva:{
+            required: true,
+            minlength: 3,
+            maxlength: 25
+        },
+        confiContra:{
+            required:true,
+            minlength: 3,
+            maxlength: 25
+        }
+    }
+});
+
+$(document).ready(function(){
+    $("#ConfirmarCambios").click(function(){
+        if($("#confiCambios").valid() == false) {
+            alert("Ingrese otra contraseña")
+        }else{    
+            alert('Contraseña modificada correctamente')
+        }
+    });
+})

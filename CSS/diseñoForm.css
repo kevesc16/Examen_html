@@ -49,3 +49,17 @@ label{
     position: relative;
     
 }
+#confiCambios{
+    border-style: solid;
+    border-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#confiCambios input{
+    background: none;
+    color: white;
+    border-color: white;
+    border-style: solid;
+    border-radius: 5px;
+}
