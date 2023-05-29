@@ -1,4 +1,5 @@
 const agregar = document.querySelectorAll('.addCarro');
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 agregar.forEach(botonAdd => {
     botonAdd.addEventListener('click', botonClick)
@@ -63,6 +64,16 @@ function agregarItemCarrito(titulo, precio, imagen){
     
     filaCarrito.querySelector('.cantidadPeliculas').addEventListener('change', cantidadCambio)
     actualizarTotal();
+
+     // Guardar datos en el localStorage
+    const item = {
+        titulo: titulo,
+        precio: precio,
+        imagen: imagen
+    };
+
+    carrito.push(item);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
 function actualizarTotal(){
@@ -82,10 +93,19 @@ function actualizarTotal(){
     total.innerHTML=`${totalP}$`
     botonDesactivado(totalP);
 }
-
 function eliminacionProducto(event){
     const botonClickeado = event.target
     botonClickeado.closest('.shoppingCartItem').remove();
+
+    const indiceAEliminar = 0; // Índice del elemento a eliminar
+
+    if (indiceAEliminar >= 0 && indiceAEliminar < carrito.length) {
+        carrito.splice(indiceAEliminar, 1);
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        alert("Pelicula eliminado correctamente");
+    } else {
+        alert("El índice está fuera de rango");
+    }
     actualizarTotal();
 }
 
@@ -99,6 +119,7 @@ function cantidadCambio(event){
 
 function comprarClicked(event){
         tablaCarrito.innerHTML = '';
+        localStorage.removeItem('carrito');
         actualizarTotal();
         alert('Su pedido ha sido realizado');
 }
@@ -116,3 +137,45 @@ function botonDesactivado(totalP){
     
     
 }
+
+function showLocal(){
+    for(let i = 0; i< carrito.length; i++){
+        const array = carrito[i];
+        const titulo = array.titulo;
+        const precio = array.precio;
+        const imagen = array.imagen;
+
+        const filaCarrito = document.createElement('div');
+        const carritoContenido = `
+        <div class="row shoppingCartItem">
+            <div class="col-6">
+                <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom pb-2 pt-3">
+                    <img src=${imagen} class="shopping-cart-image">
+                    <h6 class="shopping-cart-item-title shoppingCartItemTitle text-truncate ml-3 mb-0">${titulo}</h6>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="shopping-cart-price d-flex align-items-center h-100 border-bottom pb-2 pt-3">
+                    <p class="item-price mb-0 carritoPrecio">${precio}</p>
+                </div>
+            </div>
+            <div class="col-4">
+                <div
+                    class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 border-bottom pb-2 pt-3">
+                    <input class="shopping-cart-quantity-input cantidadPeliculas" type="number"
+                        value="1">
+                    <button class="btn btn-danger eliminarProducto" type="button">X</button>
+                </div>
+            </div>
+        </div>`;
+        
+        filaCarrito.innerHTML = carritoContenido;
+        tablaCarrito.append(filaCarrito);
+
+        filaCarrito.querySelector('.eliminarProducto').addEventListener('click', eliminacionProducto)
+        filaCarrito.querySelector('.cantidadPeliculas').addEventListener('change', cantidadCambio)
+        actualizarTotal();
+    }
+
+}
+showLocal();
