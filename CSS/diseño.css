@@ -123,3 +123,14 @@ body{
 .caja_descripcion textarea::placeholder{
     color: #052f41;
 }
+
+.btnVerMas{
+    position: absolute;
+    bottom: 10px;
+    left: 5px;
+}
+.addCarro{
+    position: absolute;
+    bottom: 10px;
+    left: 95px;
+}
