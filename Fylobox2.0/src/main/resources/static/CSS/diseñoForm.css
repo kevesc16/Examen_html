@@ -1,0 +1,65 @@
+label{
+    color: white;
+    font-size: 20px;
+    font-family: monospace;
+
+}
+
+.form-control::placeholder {
+    color: rgb(255, 255, 255);
+}
+
+#form_registro input{
+    background: none;
+    color: white;
+    font-family: monospace;
+}
+#form_registro select{
+    background: none;
+    color: white;
+
+}
+#form_registro select option{
+    color: black;
+}
+
+.error{
+    color: rgba(231, 216, 0, 0.897);
+}
+
+#InicioSe{
+    border-style: solid;
+    border-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#InicioSe input{
+    background: none;
+    color: white;
+    border-color: white;
+    border-style: solid;
+    border-radius: 5px;
+}
+#h4Inicio{
+    color: white;
+}
+#contraOlv{
+    color: white;
+    position: relative;
+    
+}
+#confiCambios{
+    border-style: solid;
+    border-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#confiCambios input{
+    background: none;
+    color: white;
+    border-color: white;
+    border-style: solid;
+    border-radius: 5px;
+}

@@ -1,0 +1,136 @@
+body{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+#margincard{
+    
+    margin-top: 1cm;
+    margin-bottom: 2cm;
+}
+
+
+
+.page-item.active .page-link {
+    background-color: #2d2d36;
+    border-color: #2d2d36;
+}
+.centrado{
+    text-align: center;
+}
+.card:hover img{
+    opacity: 0.2;
+
+}
+.barraNave{
+    position: sticky;
+    z-index: 3;
+    top: 0;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    height: 7vh;
+
+}
+#fyloBox{
+    width: 35px;
+    margin-top: 0;
+}    
+#verCarritoClick{
+    width: 35px;
+    margin-top: 0;
+    cursor: pointer;
+}
+#botonE{
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+
+}
+#titulo1{
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+
+}
+.container_todo{
+    max-width: 800px;
+    width: 50%; /* Esto ajustará el ancho del div */
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0px; /* Esto centrará el div horizontalmente */
+    position: absolute;
+}
+.caja_imagen{
+    position: relative;
+    right: 50%; /* Puedes ajustar el valor según tu necesidad */
+    transition: left 0.5s ease; /* Agrega una transición suave para animar el movimiento */
+    top: 70%;
+
+}
+.caja_descripcion{
+    position: relative;
+    left: 40%; /* Puedes ajustar el valor según tu necesidad */
+    transition: left 0.5s ease; /* Agrega una transición suave para animar el movimiento */
+    top: -50px;
+}
+.caja_dinero{
+    position: relative;
+    left: 40%; /* Puedes ajustar el valor según tu necesidad */
+    transition: left 0.5s ease; /* Agrega una transición suave para animar el movimiento */
+    top: 10%;
+}
+.caja_dinero input{
+    width: 200px;
+}
+.caja_dinero span{
+    width: 140px;
+}
+.caja_imagen input{
+    width: 400px;
+}
+.caja_descripcion textarea{
+    width: 700px;
+    height: 200px;
+}
+.caja_dinero span,
+.caja_dinero input {
+    display: inline-block;
+}
+.caja_descripcion span{
+    width: 110px;
+}
+.actualizarMovie{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 70px;
+    margin-right: 200px;
+}
+.Posicion_image{
+    position: absolute;
+    top: -40px; /* Ajusta la distancia vertical según tu necesidad */
+    left: -35%; /* Centra horizontalmente la vista previa */
+    transform: translateX(-50%);
+    text-align: center; /* Centra el contenido horizontalmente */
+}
+.caja_dinero input::placeholder,
+.caja_descripcion textarea::placeholder{
+    color: #052f41;
+}
+
+.btnVerMas{
+    position: absolute;
+    bottom: 10px;
+    left: 5px;
+}
+.addCarro{
+    position: absolute;
+    bottom: 10px;
+    left: 95px;
+}
