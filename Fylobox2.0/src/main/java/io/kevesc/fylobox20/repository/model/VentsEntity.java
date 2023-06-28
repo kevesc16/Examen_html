@@ -7,10 +7,10 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name = "ventas")
+@Table(name = "vents")
 @Getter
 @Setter
-public class VentasEntity {
+public class VentsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, nullable = false)
@@ -20,8 +20,8 @@ public class VentasEntity {
     private int price;
 
     @ManyToMany
-    @JoinColumn(name = "pelis_id")
-    private List<PelisEntity> pelis;
+    @JoinColumn(name = "movies_id")
+    private List<MoviesEntity>movies;
 
 
 }
