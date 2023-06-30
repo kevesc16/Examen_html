@@ -1,2 +1,2 @@
-INSERT INTO Users (username, password, email, role_id)
-VALUES ('kevesc', '123', 'kjescoba10@gmail.com', 1);
+INSERT INTO Users (nombre,apellido,genero,correo,telefono,usuario, password)
+VALUES ('Cal', 'yCanto','moto','prueba@mail','999999999', 'pepicalicanto','1234');

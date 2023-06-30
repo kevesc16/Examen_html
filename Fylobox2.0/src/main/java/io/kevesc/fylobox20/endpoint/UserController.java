@@ -1,98 +1,56 @@
 package io.kevesc.fylobox20.endpoint;
+
 import io.kevesc.fylobox20.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
-
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 
 @RestController
 @RequiredArgsConstructor
 public class UserController {
-    final private UserService service;
+    private final UserService userService;
 
     @GetMapping("/users")
-    public ResponseEntity<GetUsersResponse> getUsers() {
-        GetUsersResponse response = new GetUsersResponse();
-        response.setUsers(service.getListUsers());
-        return ResponseEntity.ok(response);
+    public ResponseEntity<List<User>> getUsers() {
+        List<User> users = userService.getListUsers();
+        return ResponseEntity.ok(users);
     }
 
     @GetMapping("/users/{id}")
-    public ResponseEntity<GetUsersResponse> getUsers(@PathVariable("id") int id) {
-        User userById = service.getUserById(id);
-        if (userById != null) {
-            GetUsersResponse response = new GetUsersResponse();
-            response.setUsers((List<User>) userById);
-            return ResponseEntity.ok(response);
+    public ResponseEntity<User> getUserById(@PathVariable("id") int id) {
+        User user = userService.getUserById(id);
+        if (user != null) {
+            return ResponseEntity.ok(user);
         } else {
             return ResponseEntity.notFound().build();
         }
     }
 
     @PostMapping("/users")
-    public ResponseEntity<PostResponse> post(@RequestBody User user) {
-        int id = service.addUser(user);
-        PostResponse response = new PostResponse();
-        response.setId(id);
-        return ResponseEntity.ok(response);
+    public ResponseEntity<String> addUser(@RequestBody User user) {
+        int userId = userService.addUser(user);
+        return ResponseEntity.ok("Usuario creado con ID: " + userId);
     }
 
     @PutMapping("/users/{id}")
-    public ResponseEntity<PutResponse> put(@PathVariable("id") int id, @RequestBody User user){
-        User updated = service.updateUserById(id, user);
-        if (updated != null) {
-            PutResponse response = new PutResponse();
-            response.setUser(updated);
-            return ResponseEntity.ok(response);
+    public ResponseEntity<User> updateUser(@PathVariable("id") int id, @RequestBody User modifiedUser) {
+        User updatedUser = userService.updateUserById(id, modifiedUser);
+        if (updatedUser != null) {
+            return ResponseEntity.ok(updatedUser);
         } else {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.notFound().build();
         }
     }
 
     @DeleteMapping("/users/{id}")
-    public ResponseEntity<DeleteResponse> delete(@PathVariable("id") int id) {
-        User deleted = service.deleteUserById(id);
-        if (deleted != null) {
-            DeleteResponse response = new DeleteResponse();
-            response.setUser(deleted);
-            return ResponseEntity.ok(response);
+    public ResponseEntity<User> deleteUser(@PathVariable("id") int id) {
+        User deletedUser = userService.deleteUserById(id);
+        if (deletedUser != null) {
+            return ResponseEntity.ok(deletedUser);
         } else {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.notFound().build();
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

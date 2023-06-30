@@ -126,3 +126,86 @@ $(document).ready(function(){
         }
     });
 })
+$(document).ready(function() {
+    loadData();
+});
+function loadData() {
+    $.get('/users', function(data) {
+        // Iterar sobre los datos recibidos y agregar filas a la tabla
+        data.forEach(function(item) {
+            $('#data-table tbody').append(`
+                        <tr>
+                            <td>${item.id}</td>
+                            <td>${item.name}</td>
+                            <td>
+                                <button onclick="editItem(${item.id})">Editar</button>
+                                <button onclick="deleteItem(${item.id})">Eliminar</button>
+                            </td>
+                        </tr>
+                    `);
+        });
+    });
+}
+
+
+
+$('#guardar').click(function() {
+    const user = {
+        nombre: $('#nombre').val(),
+        apellido: $('#apellido').val(),
+        genero: $('#genero').val(),
+        correo: $('#correo').val(),
+        telefono: $('#telefono').val(),
+        usuario: $('#usuario').val(),
+        password: $('#password').val()
+    };
+
+    // Enviar la solicitud AJAX al backend
+    $.ajax({
+        url: '/api/users/register',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(user),
+        success: function(response) {
+            // Manejar la respuesta del servidor si es necesario
+            alert(response);
+            // Limpiar el formulario después de un registro exitoso
+            $('#form_registro')[0].reset();
+        },
+        error: function(error) {
+            // Manejar el error si es necesario
+            alert('Error al registrar usuario');
+        }
+    });
+});
+
+
+
+
+
+
+$(document).ready(function () {
+    $.ajaxSetup({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    });
+    $("#guardar").click(function (){
+        let data = {}
+        data.nombre = $("#nombre").val()
+        data.apellido = $("#apellido").val()
+        data.genero = $("#genero").val()
+        data.correo = $("#correo").val()
+        data.telefono = $("#telefono").val()
+        data.usuario = $("#usuario").val()
+        data.password = $("#password").val()
+        $.post(
+            "/users"
+            , JSON.stringify(data)
+            , function(json, status, jqxhr){
+                alert("Esta funcionando")
+            }
+            , 'json')
+    })
+})
