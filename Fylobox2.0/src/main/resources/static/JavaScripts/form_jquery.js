@@ -65,8 +65,6 @@ $(document).ready(function(){
             !expresionRegular.test(contrasena) ||
             !expresionRegular.test(conContrasena)){
                 alert("El campo no debe contener espacios");
-            }else{
-                alert('usuario creado')
             }
             
         }

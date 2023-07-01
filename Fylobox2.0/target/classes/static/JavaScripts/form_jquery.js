@@ -65,8 +65,6 @@ $(document).ready(function(){
             !expresionRegular.test(contrasena) ||
             !expresionRegular.test(conContrasena)){
                 alert("El campo no debe contener espacios");
-            }else{
-                alert('usuario creado')
             }
             
         }
@@ -161,7 +159,7 @@ $('#guardar').click(function() {
     };
 
     // Enviar la solicitud AJAX al backend
-    $.post({
+    $.ajax({
         url: '/api/users/register',
         type: 'POST',
         contentType: 'application/json',
