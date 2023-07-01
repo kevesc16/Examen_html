@@ -119,7 +119,7 @@ $("#confiCambios").validate({
 
 $(document).ready(function(){
     $("#ConfirmarCambios").click(function(){
-        if($("#confiCambios").valid() == false) {
+        if($("#confiCambios").valid() === false) {
             alert("Ingrese otra contraseña")
         }else{    
             alert('Contraseña modificada correctamente')
@@ -161,7 +161,7 @@ $('#guardar').click(function() {
     };
 
     // Enviar la solicitud AJAX al backend
-    $.ajax({
+    $.post({
         url: '/api/users/register',
         type: 'POST',
         contentType: 'application/json',
@@ -178,12 +178,6 @@ $('#guardar').click(function() {
         }
     });
 });
-
-
-
-
-
-
 $(document).ready(function () {
     $.ajaxSetup({
         headers: {
@@ -209,3 +203,4 @@ $(document).ready(function () {
             , 'json')
     })
 })
+
